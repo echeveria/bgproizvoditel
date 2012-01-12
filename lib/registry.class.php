@@ -33,8 +33,7 @@ class registry
         }
         
        
-        private function __clone()
-        {}
+        
 }
 
 ?>
