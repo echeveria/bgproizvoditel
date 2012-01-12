@@ -9,7 +9,7 @@ class registry{
 	public function __construct(){
 	}
 	
-	public function setObject($path = NULL, $object, $key )
+	public function setObject($path, $object, $key )
         {
                 require_once($path. $object . '.class.php' );
 
@@ -32,10 +32,5 @@ class registry{
         }
 
 }
-
-$registry = new registry();
-
-$registry->setObject('../controllers/','controller', 'controller');
-$registry->getObject('controller')->getMessage();
 
 ?>
