@@ -1,36 +1,65 @@
 <?php
-class registry{
-
-
-	private $objects = array();
-	
-	private $setings = array();
-	
-	public function __construct(){
-	}
-	
-	public function setObject($path, $object, $key )
+class SingletonRegistry
+{       
+        
+        private static $instance;
+        
+        /**
+         * Object hash map
+         *
+         * @var array
+         */
+        private $map;
+        
+        /**
+         * Private constructor
+         *
+         */
+        private function __construct()
+        {}
+        
+        /**
+         * Get the single instance
+         *
+         * @return SingletonRegistry
+         */
+        public static function getInstance()
         {
-                require_once($path. $object . '.class.php' );
-
-                $this->objects[ $key ] = new $object( $this);
+                if(self::$instance === null)
+                {
+                        //First and only construction.
+                        self::$instance = new self();
+                }
+                return self::$instance;
         }
         
-        public function storeSetting( $setting, $key )
+        /**
+         * Get an object by key
+         *
+         * @param string|int $key
+         * @return object
+         */
+        public function get($key)
         {
-                $this->settings[ $key ] = $setting;
+                return $this->map[$key];
         }
-
-	public function getSetting( $key )
+        
+        /**
+         * Set an object by key
+         *
+         * @param string|int $key
+         */
+        public function set($key, $object)
         {
-                return $this->settings[ $key ];
+                return $this->map[$key] = $object;
         }
-
-	public function getObject( $key )
-        {
-                return $this->objects[ $key ];
-        }
-
+        
+        /**
+         * Disallow cloning
+         *
+         */
+        private function __clone()
+        {}
 }
 
 ?>
