@@ -1,5 +1,8 @@
 <?php
+<<<<<<< HEAD
 
+=======
+>>>>>>> e53cda6c48f090bf78a5a4bd49bd8843d9ec46fc
 class registry
 {       
         
@@ -10,8 +13,13 @@ class registry
         
         private function __construct()
         {}
+<<<<<<< HEAD
         
         
+=======
+        
+        
+>>>>>>> e53cda6c48f090bf78a5a4bd49bd8843d9ec46fc
         public static function getInstance()
         {
                 if(self::$instance === null)
@@ -33,8 +41,12 @@ class registry
                 return $this->object[$key] = $object;
         }
         
+<<<<<<< HEAD
 
         
+=======
+       
+>>>>>>> e53cda6c48f090bf78a5a4bd49bd8843d9ec46fc
         
 }
 
