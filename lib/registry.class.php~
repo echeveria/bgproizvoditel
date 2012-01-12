@@ -38,5 +38,14 @@ class registry
         
 }
 
+$obj = registry::getInstance();
+$obj->set("test1", new test1());
+$obj->set("test2", new test2());
+echo "\n";
+echo $obj->get("test1")->getmessage();
+echo "\n";
+echo $obj->get("test2")->getmessage();
+echo "\n";
+echo $obj->get("test2")->var;
 ?>
 
