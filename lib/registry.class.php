@@ -4,7 +4,7 @@ class registry
         
         private static $instance;
        
-        private $map;
+        private $object;
         
         
         private function __construct()
@@ -24,12 +24,12 @@ class registry
        
         public function get($key)
         {
-                return $this->map[$key];
+                return $this->object[$key];
         }
         
         public function set($key, $object)
         {
-                return $this->map[$key] = $object;
+                return $this->object[$key] = $object;
         }
         
        
